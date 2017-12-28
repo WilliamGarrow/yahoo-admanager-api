@@ -4,5 +4,5 @@ This is an example of the code to access Yahoo Ad Manager API to retrieve advert
 ## Usage
 Replace the API specific variables with your unique consumer key, consumer secret, and advertiser id. Include your application-specific files in the path including YahooOAuth2.class.php.
 ```php
-<PATH>, <CONSUMERKEY>, <CONSUMERSECRET>, <ADVERTISERID>
+<YOUR PATH>, <YOUR CONSUMER KEY>, <YOUR CONSUMER SECRET>, <YOUR ADVERTISER ID>
 ```
