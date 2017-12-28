@@ -1,13 +1,13 @@
 <?php
 
-$appRoot = dirname(__FILE__).'<PATH>';
+$appRoot = dirname(__FILE__).'<YOUR PATH>';
 require "YahooOAuth2.class.php";
 require_once $appRoot.'config.php';
 require_once $appRoot.'load.php';
 global $userdb;
 
-define('CONSUMER_KEY', '<CONSUMERKEY>');
-define('CONSUMER_SECRET', '<CONSUMERSECRET>');
+define('CONSUMER_KEY', '<YOUR CONSUMER KEY>');
+define('CONSUMER_SECRET', '<YOUR CONSUMER SECRET>');
 
 $redirect_uri = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];  // Or your other redirect URL - must match the callback domain
 $gemini_api_endpoint = "https://api.admanager.yahoo.com/v2/rest";
@@ -50,7 +50,7 @@ if ($code || is_file(dirname(__FILE__).'/yahoo_refresh.txt')) {
     $filterAdvertiserId = new stdClass();
     $filterAdvertiserId->field = "Advertiser ID";
     $filterAdvertiserId->operator = '=';
-    $filterAdvertiserId->value = <ADVERTISERID>;
+    $filterAdvertiserId->value = <YOUR ADVERTISER ID>;
 
     $filterDay = new stdClass();
     $filterDay->field = "Day";
@@ -72,7 +72,7 @@ if ($code || is_file(dirname(__FILE__).'/yahoo_refresh.txt')) {
 
     if($jsonResponse->response && $jsonResponse->response->jobId){
 
-        $url = $gemini_api_endpoint."/reports/custom/".$jsonResponse->response->jobId."?advertiserId=<ADVERTISERID>";
+        $url = $gemini_api_endpoint."/reports/custom/".$jsonResponse->response->jobId."?advertiserId=<YOUR ADVERTISER ID>";
         $resp = json_decode($oauth2client->fetchV2($url, "", "", $headers));
         $attempts = 1;
         while($resp->response->status != "completed"){
@@ -97,7 +97,7 @@ if ($code || is_file(dirname(__FILE__).'/yahoo_refresh.txt')) {
                     'campaign_name' => 'Campaign Name',
                     'channel' => 'Yahoo',
                     'lead_source' => 'Yahoo Paid Lead',
-                    'affiliate' => '<AFFILIATE>',
+                    'affiliate' => '<YOUR AFFILIATE INFO>',
                 );
 
                 if( $insertData['clicks'] > 0 || $insertData['spend'] > 0) {
